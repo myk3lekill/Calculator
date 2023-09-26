@@ -69,7 +69,56 @@ body {
     padding: 10px;
   }
 
+  button {
+    min-height: 50px;
+    font-size: 20px;
+    font-weight: 100;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(184, 184, 184);
+  }
+
+  .operator {
+    background-color: grey;
+    color: white;
+    font-size: 30px;
+  }
+
+  .clear {
+    background-color: rgb(255, 39, 39);
+    color: white;
+  }
+
   .equal-sign {
     grid-column: -2;
     grid-row: 2 / span 4;
+    background-color: rgba(13, 206, 87);
+  }
+
+  /* Buttons Hover */
+  button:hover {
+    filter: brightness(110%);
+  }
+
+  .clear:hover {
+    filter: brightness(90%);
+  }
+
+  /* Buttons Active */
+  button:active {
+    transform: translateY(1px);
+  }
+
+  /* Buttons Focus */
+  button:focus {
+    outline: none;
+  }
+
+  /* --------------- Media Query ------------- */
+  @media screen and (max-width: 600px) {
+    .calculator {
+      width: 95%;
+    }
+    
   }
