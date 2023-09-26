@@ -3,11 +3,25 @@ const calculatorDisplay = document.querySelector('h1');
 const inputBtns = document.querySelectorAll('button'); //this return an array of buttons
 const clearBtn = document.getElementById('clear-btn');
 
+
 // Global Variables
 let firstValue = 0;
 let operatorValue = '';
 let awaitingNextValue = false;
 
+
+// OBJECT:
+// Calculate first and second values depending on operator
+const calculate = {
+    '/': (firstNumber, secondNumber) => firstNumber / secondNumber,
+    '*': (firstNumber, secondNumber) => firstNumber * secondNumber,
+    '+': (firstNumber, secondNumber) => firstNumber + secondNumber,
+    '-': (firstNumber, secondNumber) => firstNumber - secondNumber,
+    '=': (firstNumber, secondNumber) => secondNumber,
+};
+
+
+// FUNCTIONS:
 // Send Number Value
 function sendNumberValue(number) {
     //Replace current display value if first value is entered
@@ -39,15 +53,6 @@ function addDecimal() {
     }
 }
 
-// Calculate first and second values depending on operator
-const calculate = {
-    '/': (firstNumber, secondNumber) => firstNumber / secondNumber,
-    '*': (firstNumber, secondNumber) => firstNumber * secondNumber,
-    '+': (firstNumber, secondNumber) => firstNumber + secondNumber,
-    '-': (firstNumber, secondNumber) => firstNumber - secondNumber,
-    '=': (firstNumber, secondNumber) => secondNumber,
-};
-
 // Use Operator
 function useOperator(operator) {
     const currentValue = Number(calculatorDisplay.textContent);
@@ -71,6 +76,8 @@ function useOperator(operator) {
     operatorValue = operator;
 }
 
+
+// EVENT LISTENERS:
 // Event Listener for Numbers Operator and Decimal buttons
 inputBtns.forEach((inputBtn) => {
     if (inputBtn.classList.length === 0) {
